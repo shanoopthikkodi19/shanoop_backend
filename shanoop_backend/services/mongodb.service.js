@@ -1,6 +1,6 @@
 const {MongoClient} = require('mongodb');
 
-const url = 'mongodb://localhost:27017/';
+const url = 'mongodb+srv://shanoopthikkodi19_db_user:0ea34PHCJfuMONl0@shanoop-backend.cdnjpvr.mongodb.net/';
 
 class MongoDB {
     static connectToMongoDB = () =>{
