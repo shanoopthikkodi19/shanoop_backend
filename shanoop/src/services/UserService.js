@@ -1,0 +1,38 @@
+import {ApiConstants} from '../constants';
+import axios from 'axios';
+import { authHeader } from '../utils/Generator';
+import { getTocken } from '../Store';
+
+const getUserData = async () =>{
+    console.log('UserService | getUserData');
+    try {
+        let userResponce = await axios.get(
+            `${ApiConstants.BACKEND_API.BASE_API_URL}${ApiConstants.BACKEND_API.USER}/get-user`,{headers:authHeader(getTocken()),
+        },);
+
+            if(userResponce?.status=== 200){
+                return{
+                    status: true,
+                     message: `User data fetched`,
+                     data: userResponce?.data,
+                };
+            }else
+            {
+                return {
+                 status: false,
+                 message: `User data not found`,
+                };
+            }
+        
+    } catch (error) {
+        
+        return {
+            status: false,
+            message: error?.response?.data?.message
+                ? error?.response?.data?.message
+                : `User data not found`,
+            };
+    }
+};
+
+export default {getUserData};
