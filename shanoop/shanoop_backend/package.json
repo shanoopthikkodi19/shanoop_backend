@@ -11,6 +11,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "mongodb": "^7.1.0",
     "morgan": "~1.9.1"
+  },"projectConfig": {
+    "mongoConnectionUrl": "mongodb+srv://shanoopthikkodi19_db_user:0ea34PHCJfuMONl0@shanoop-backend.cdnjpvr.mongodb.net/",
+    "serverIp": "127.0.0.1",
+    "serverPort": "10000"
   }
 }
