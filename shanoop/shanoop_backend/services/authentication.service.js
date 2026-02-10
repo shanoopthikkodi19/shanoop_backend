@@ -27,7 +27,7 @@ const userRegister = async (user) => {
     }
   } catch (error) {
     console.log(error);
-    let errorMessage = "User registered failed";
+    let errorMessage = "User registered failed1";
     error?.code === 11000 && error?.keyPattern?.username
       ? (errorMessage = "Username already exist")
       : null;
