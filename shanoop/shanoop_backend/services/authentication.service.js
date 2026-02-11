@@ -8,19 +8,25 @@ const userRegister = async (user) => {
   try {
     if (!user?.username || !user?.email || !user?.password)
       return { status: false, message: "Please fill up all the fields" };
-    
+    const passwordHash = await bcrypt.hash(user?.password, 10);
     let userObject = {
       username: user?.username,
       email: user?.email,
+      password: passwordHash,
     };
     let savedUser = await MongoDB.db
       .collection(mongoConfig.collections.USERS)
       .insertOne(userObject);
     if (savedUser?.acknowledged && savedUser?.insertedId) {
-      
+      let token = jwt.sign(
+        { username: userObject?.username, email: userObject?.email },
+        tokenSecret,
+        { expiresIn: "24h" }
+      );
       return {
         status: true,
         message: "User registered successfully",
+        data: token,
       };
     } else {
       return {
@@ -30,7 +36,7 @@ const userRegister = async (user) => {
     }
   } catch (error) {
     console.log(error);
-    let errorMessage = "User registered failed1";
+    let errorMessage = "User registered failed";
     error?.code === 11000 && error?.keyPattern?.username
       ? (errorMessage = "Username already exist")
       : null;
