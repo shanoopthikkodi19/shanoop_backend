@@ -2,6 +2,7 @@ const { mongoConfig } = require("../config");
 const MongoDB = require("./mongodb.service");
 
 const getAllRestaurant = async () => {
+    console.log('hello iam here');
   try {
     let restaurants = await MongoDB.db
       .collection(mongoConfig.collections.RESTAURANTS)
