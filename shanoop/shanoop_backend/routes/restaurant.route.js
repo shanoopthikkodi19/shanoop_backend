@@ -1,9 +1,10 @@
 var express = require("express");
+var router = express.Router();
 const {
   getAllRestaurant,
   getOneRestaurantById,
 } = require("../services/restaurant.service");
-var router = express.Router();
+
 
 router.get("/", async (req, res) => {
  // console.log('hello iam here1');
