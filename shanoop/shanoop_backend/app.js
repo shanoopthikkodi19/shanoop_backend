@@ -31,7 +31,7 @@ app.use("*", require("./services/authentication.service").tokenVerification);
 app.use('/', indexRouter);
 app.use('/api', authenticationRouter);
 app.use("/api/user", userRouter);
-app.use("/api/restaurant", restaurantRouter);
+app.use("/api/restaurants", restaurantRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/bookmark", bookmarkRouter);
