@@ -7,7 +7,7 @@ const {
 
 
 router.get("/", async (req, res) => {
-   console.log('restaurant root');
+  
   let response = await getAllRestaurant();
   res.json(response);
 });
