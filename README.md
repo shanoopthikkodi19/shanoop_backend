@@ -1,0 +1,1 @@
+An Express.js backend for a food delivery application manages real-time data, complex user roles, and transactional workflows. It serves as the bridge between customer apps, driver apps, restaurant dashboards, and third-party services.
